@@ -45,7 +45,6 @@ public class Main {
                          })
                          .sum();
         System.out.printf("part 2: %d\n", result);
-        
     }
 
     private static int countOccurrences(int val, List<Integer> data) {
