@@ -3,6 +3,9 @@ package aoc.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public final class FileReaders {
 
@@ -13,6 +16,20 @@ public final class FileReaders {
             }
             return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         }
+    }
+
+    public static List<List<Integer>> readLinesAsLists(String resourcePath) throws IOException {
+        String data = fileToString(resourcePath);
+        return Arrays.stream(data.trim().split("\n"))
+                     .map(line -> readLineAList(line))
+                     .collect(Collectors.toList());
+    }
+
+    public static List<Integer> readLineAList(String line) {
+        return Arrays.stream(line.split(" "))
+                     .mapToInt(Integer::parseInt)
+                     .boxed()
+                     .collect(Collectors.toList());
     }
 
 }
