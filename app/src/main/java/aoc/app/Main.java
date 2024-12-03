@@ -6,9 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            String className = String.format("aoc.days.Day%s", args[0]);
+            String dayNumber = args[0];
+            String inputFile = args[1];
+            String className = String.format("aoc.days.Day%s", dayNumber);
             Day day = (Day) Class.forName(className).getDeclaredConstructor().newInstance();
-            day.run(args[1]);
+            day.run(inputFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
