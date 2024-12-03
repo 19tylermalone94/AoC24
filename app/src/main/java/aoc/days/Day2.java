@@ -3,13 +3,14 @@ package aoc.days;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiPredicate;
-import aoc.util.FileReaders;
+import aoc.util.Parsers;
+import aoc.util.Readers;
 
 public class Day2 implements Day {
 
     @Override
     public void run(String fileName) throws Exception {
-        List<List<Integer>> reports = FileReaders.readLinesAsLists(fileName);
+        List<List<Integer>> reports = Parsers.readMatrix(Readers.fileToString(fileName));
         int numSafeBeforeDampening = numSafeReports(reports);
         problemDampener(reports);
         int numSafeAfterDampening = numSafeReports(reports);

@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
-import aoc.util.FileReaders;
+import aoc.util.Readers;
 
 public class Day1 implements Day {
 
     @Override
     public void run(String fileName) throws IOException {
-        String input = FileReaders.fileToString(fileName);
+        String input = Readers.fileToString(fileName);
         List<Integer> left = new ArrayList<>();
         List<Integer> right = new ArrayList<>();
         Arrays.stream(input.trim().split("\n"))

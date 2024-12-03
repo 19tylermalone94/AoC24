@@ -1,32 +1,36 @@
 package aoc.days;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import aoc.util.Parsers;
+
 public class TestDay2 {
 
+    static final String SAMPLE_DATA = """
+                                      7 6 4 2 1
+                                      1 2 7 8 9
+                                      9 7 6 2 1
+                                      1 3 2 4 5
+                                      8 6 4 4 1
+                                      1 3 6 7 9
+
+                                      """;
+
     Day2 day2;
+    List<List<Integer>> reports;
 
     @BeforeEach
-    public void beforeEach() {
+    public void beforeEach() throws IOException {
         day2 = new Day2();
+        reports = Parsers.readMatrix(SAMPLE_DATA);
     }
 
     @Test
     public void testPart1() {
-        List<List<Integer>> reports = List.of(
-            List.of(7, 6, 4, 2, 1),
-            List.of(1, 2, 7, 8, 9),
-            List.of(9, 7, 6, 2, 1),
-            List.of(1, 3, 2, 4, 5),
-            List.of(8, 6, 4, 4, 1),
-            List.of(1, 3, 6, 7, 9)
-        );
         int expected = 2;
         int actual = day2.numSafeReports(reports);
         assertEquals(expected, actual);
@@ -34,14 +38,6 @@ public class TestDay2 {
 
     @Test
     public void testPart2() {
-        List<List<Integer>> reports = List.of(
-            new ArrayList<>(List.of(7, 6, 4, 2, 1)),
-            new ArrayList<>(List.of(1, 2, 7, 8, 9)),
-            new ArrayList<>(List.of(9, 7, 6, 2, 1)),
-            new ArrayList<>(List.of(1, 3, 2, 4, 5)),
-            new ArrayList<>(List.of(8, 6, 4, 4, 1)),
-            new ArrayList<>(List.of(1, 3, 6, 7, 9))
-        );
         int expected = 4;
         day2.problemDampener(reports);
         int actual = day2.numSafeReports(reports);
