@@ -37,7 +37,7 @@ public class Day4 implements Day {
         return numFinds;
     }
 
-    int searchDirections(int i, int j) {
+    private int searchDirections(int i, int j) {
         int numFinds = 0;
         for (int d = 0; d < 8; ++d) {
             numFinds += isFound(i, j, d) ? 1 : 0;
@@ -45,7 +45,7 @@ public class Day4 implements Day {
         return numFinds;
     }
 
-    boolean isFound(int i, int j, int d) {
+    private boolean isFound(int i, int j, int d) {
         int k = 0;
         while (i >= 0 && i < M && j >= 0 && j < N && k < word.length()) {
             if (grid[i][j] != word.charAt(k)) {
@@ -69,7 +69,7 @@ public class Day4 implements Day {
         return count;
     }
 
-    boolean isX(int i, int j) {
+    private boolean isX(int i, int j) {
         char tl = grid[i - 1][j - 1];
         char tr = grid[i - 1][j + 1];
         char bl = grid[i + 1][j - 1];
