@@ -1,7 +1,7 @@
 package aoc.days;
 
 import java.io.IOException;
-import java.util.Arrays;
+import aoc.util.Parsers;
 import aoc.util.Readers;
 
 public class Day4 implements Day {
@@ -15,9 +15,7 @@ public class Day4 implements Day {
     int N;
 
     private void init(String data) throws IOException{
-        grid = Arrays.stream(data.split("\n"))
-                     .map(String::toCharArray)
-                     .toArray(char[][]::new);
+        grid = Parsers.charMatrix(data);
         M = grid.length;
         N = grid[0].length;
     }

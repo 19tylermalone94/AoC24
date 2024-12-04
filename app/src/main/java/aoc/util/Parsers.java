@@ -13,6 +13,12 @@ public class Parsers {
                      .collect(Collectors.toList());
     }
 
+    public static char[][] charMatrix(String data) throws IOException {
+        return Arrays.stream(data.trim().split("\n"))
+                     .map(String::toCharArray)
+                     .toArray(char[][]::new);
+    }
+
     public static List<Integer> readRow(String data) {
         return Arrays.stream(data.split(" "))
                      .mapToInt(Integer::parseInt)
