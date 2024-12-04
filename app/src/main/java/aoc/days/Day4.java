@@ -60,22 +60,21 @@ public class Day4 implements Day {
         int count = 0;
         for (int i = 1; i < M - 1; ++i) {
             for (int j = 1; j < N - 1; ++j) {
-                if (grid[i][j] == 'A') {
-                    char topLeft = grid[i - 1][j - 1];
-                    char topRight = grid[i - 1][j + 1];
-                    char bottomLeft = grid[i + 1][j - 1];
-                    char bottomRight = grid[i + 1][j + 1];
-                    if (isX(topLeft, topRight, bottomLeft, bottomRight)) {
-                        ++count;
-                    }
+                if (isX(i, j)) {
+                    ++count;
                 }
             }
         }
         return count;
     }
 
-    boolean isX(char tl, char tr, char bl, char br) {
-        return (tl == 'M' && br == 'S' || tl == 'S' && br == 'M')
+    boolean isX(int i, int j) {
+        char tl = grid[i - 1][j - 1];
+        char tr = grid[i - 1][j + 1];
+        char bl = grid[i + 1][j - 1];
+        char br = grid[i + 1][j + 1];
+        return (grid[i][j] == 'A')
+            && (tl == 'M' && br == 'S' || tl == 'S' && br == 'M')
             && (bl == 'M' && tr == 'S' || bl == 'S' && tr == 'M');
     }
 
