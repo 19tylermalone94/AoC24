@@ -33,13 +33,13 @@ public class Day4 implements Day {
         int numFinds = 0;
         for (int i = 0; i < M; ++i) {
             for (int j = 0; j < N; ++j) {
-                numFinds += checkDirections(i, j);
+                numFinds += searchDirections(i, j);
             }
         }
         return numFinds;
     }
 
-    int checkDirections(int i, int j) {
+    int searchDirections(int i, int j) {
         int numFinds = 0;
         for (int d = 0; d < 8; ++d) {
             numFinds += isFound(i, j, d) ? 1 : 0;
