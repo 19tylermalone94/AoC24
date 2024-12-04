@@ -2,7 +2,6 @@ package aoc.days;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.stream.IntStream;
 import aoc.util.Readers;
 
 public class Day4 implements Day {
@@ -31,15 +30,21 @@ public class Day4 implements Day {
 
     int part1(String data) throws IOException {
         init(data);
-        return IntStream.range(0, M * N)
-                        .map(i -> checkDirections(i / N, i % N))
-                        .sum();
+        int numFinds = 0;
+        for (int i = 0; i < M; ++i) {
+            for (int j = 0; j < N; ++j) {
+                numFinds += checkDirections(i, j);
+            }
+        }
+        return numFinds;
     }
 
     int checkDirections(int i, int j) {
-        return IntStream.range(0, 8)
-                        .map(d -> isFound(i, j, d) ? 1 : 0)
-                        .sum();
+        int numFinds = 0;
+        for (int d = 0; d < 8; ++d) {
+            numFinds += isFound(i, j, d) ? 1 : 0;
+        }
+        return numFinds;
     }
 
     boolean isFound(int i, int j, int d) {
