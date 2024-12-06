@@ -7,6 +7,11 @@ import java.util.stream.Collectors;
 
 public class Parsers {
 
+    public static List<String> readLines(String data) {
+        return Arrays.stream(data.split("\n"))
+                     .collect(Collectors.toList());
+    }
+
     public static List<List<Integer>> readMatrix(String data) throws IOException {
         return Arrays.stream(data.trim().split("\n"))
                      .map(line -> readRow(line))
