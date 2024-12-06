@@ -42,12 +42,11 @@ public class Day5 implements Day {
     int part1(String data) {
         String[] updates = data.split("\n");
         return Arrays.stream(updates)
-                    .map(update -> update.split(","))
-                    .filter(update -> isValidUpdate(update))
-                    .map(validUpdate -> validUpdate[validUpdate.length / 2])
-                    .mapToInt(Integer::parseInt)
-                    .sum();
-
+                     .map(update -> update.split(","))
+                     .filter(update -> isValidUpdate(update))
+                     .map(validUpdate -> validUpdate[validUpdate.length / 2])
+                     .mapToInt(Integer::parseInt)
+                     .sum();
     }
 
     int part2(String data) {
