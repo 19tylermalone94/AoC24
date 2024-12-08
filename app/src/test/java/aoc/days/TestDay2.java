@@ -5,18 +5,17 @@ import java.io.IOException;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import aoc.util.Parsers;
 
-public class TestDay2 {
+public class TestDay2  implements TestDay {
 
     static final String SAMPLE_DATA = """
-                                      7 6 4 2 1
-                                      1 2 7 8 9
-                                      9 7 6 2 1
-                                      1 3 2 4 5
-                                      8 6 4 4 1
-                                      1 3 6 7 9
+                                    7 6 4 2 1
+                                    1 2 7 8 9
+                                    9 7 6 2 1
+                                    1 3 2 4 5
+                                    8 6 4 4 1
+                                    1 3 6 7 9
 
                                       """;
 

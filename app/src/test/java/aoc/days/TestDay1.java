@@ -4,28 +4,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TestDay1 {
+public class TestDay1 implements TestDay {
 
-    @Test
-    void testPart1() throws IOException {
-        List<Integer> left = Arrays.asList(3, 4, 2, 1, 3, 3);
-        List<Integer> right = Arrays.asList(4, 3, 5, 3, 9, 3);
-        int expected = 11;
-        Day1 day1 = new Day1();
-        int result = day1.part1(left, right);
-        assertEquals(expected, result, "Part1 calculation is incorrect");
+    Day1 day1;
+    List<Integer> left;
+    List<Integer> right;
+
+    @BeforeEach
+    public void beforeEach() {
+        day1 = new Day1();
+        left = Arrays.asList(3, 4, 2, 1, 3, 3);
+        right = Arrays.asList(4, 3, 5, 3, 9, 3);
     }
 
     @Test
-    void testPart2() throws IOException {
-        List<Integer> left = Arrays.asList(3, 4, 2, 1, 3, 3);
-        List<Integer> right = Arrays.asList(4, 3, 5, 3, 9, 3);
+    public void testPart1() throws IOException {
+        int expected = 11;
+        int result = day1.part1(left, right);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testPart2() throws IOException {
         int expected = 31;
-        Day1 day1 = new Day1();
         int result = day1.part2(left, right);
-        assertEquals(expected, result, "Part2 calculation is incorrect");
+        assertEquals(expected, result);
     }
     
 }

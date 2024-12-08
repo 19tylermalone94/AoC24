@@ -1,11 +1,10 @@
 package aoc.days;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TestDay7 {
+public class TestDay7 implements TestDay {
 
     String sample = """
                     190: 10 19

@@ -1,6 +1,6 @@
 package aoc.days;
 
-import aoc.util.Finders;
+import aoc.util.Counters;
 import aoc.util.Parsers;
 import aoc.util.Readers;
 
@@ -38,7 +38,7 @@ public class Day8 implements Day {
                 }
             }
         }
-        return Finders.countOccurrences(isAntinode);
+        return Counters.countOccurrences(isAntinode);
     }
 
     private void findAntiNodes(int i1, int j1, boolean useResonance) {
