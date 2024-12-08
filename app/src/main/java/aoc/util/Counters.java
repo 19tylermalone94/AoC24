@@ -2,7 +2,7 @@ package aoc.util;
 
 public class Counters {
 
-    public static <T> int countOccurrences(T val, T[][] arr) {
+    public static <T> int countOccurrences2(T val, T[][] arr) {
         int count = 0;
         for (int i = 0; i < arr.length; ++i) {
             for (int j = 0; j < arr[0].length; ++j) {
@@ -13,7 +13,7 @@ public class Counters {
         }
         return count;
     }
-    
+
     public static int countOccurrences(char val, char[][] arr) {
         int count = 0;
         for (int i = 0; i < arr.length; ++i) {

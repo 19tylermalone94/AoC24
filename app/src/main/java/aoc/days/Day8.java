@@ -7,7 +7,7 @@ import aoc.util.Readers;
 public class Day8 implements Day {
 
     char[][] grid;
-    boolean[][] isAntinode;
+    boolean[][] isAntiNode;
     int M;
     int N;
 
@@ -30,7 +30,7 @@ public class Day8 implements Day {
         grid = Parsers.charMatrix(data);
         M = grid.length;
         N = grid[0].length;
-        isAntinode = new boolean[M][N];
+        isAntiNode = new boolean[M][N];
         for (int i = 0; i < M; ++i) {
             for (int j = 0; j < N; ++j) {
                 if (grid[i][j] != '.' && grid[i][j] != '#') {
@@ -38,12 +38,12 @@ public class Day8 implements Day {
                 }
             }
         }
-        return Counters.countOccurrences(isAntinode);
+        return Counters.countOccurrences(isAntiNode);
     }
 
     private void findAntiNodes(int i1, int j1, boolean useResonance) {
         if (useResonance) {
-            isAntinode[i1][j1] = true;
+            isAntiNode[i1][j1] = true;
         }
         for (int i2 = 0; i2 < M; ++i2) {
             for (int j2 = 0; j2 < N; ++j2) {
@@ -64,19 +64,19 @@ public class Day8 implements Day {
         int j = j2 + dj;
         while (i >= 0 && i < M && j >= 0 && j < N) {
             if (useResonance) {
-                isAntinode[i][j] = true;
+                isAntiNode[i][j] = true;
                 i += di;
                 j += dj;
             } else {
                 if (grid[i][j] != grid[i1][j1]) {
-                    isAntinode[i][j] = true;
+                    isAntiNode[i][j] = true;
                     break;
                 } else {
                     i = i2 + di;
                     j = j2 + dj;
                 }
                 if (grid[i][j] != grid[i1][j1]) {
-                    isAntinode[i][j] = true;
+                    isAntiNode[i][j] = true;
                 }
             }
         }
