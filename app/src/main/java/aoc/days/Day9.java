@@ -1,7 +1,6 @@
 package aoc.days;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.stream.IntStream;
 import aoc.util.Readers;
 
@@ -22,8 +21,7 @@ public class Day9 implements Day {
     int[] decompress(String data) {
         return IntStream.range(0, data.length())
                         .mapToObj(i -> Collections.nCopies(data.charAt(i) - '0', i % 2 == 0 ? i / 2 : -1))
-                        .flatMap(List::stream)
-                        .mapToInt(Integer::valueOf)
+                        .flatMapToInt(collection -> collection.stream().mapToInt(Integer::valueOf))
                         .toArray();
     }
 
