@@ -15,5 +15,9 @@ public class Printers {
     public static void printArr(char[][] arr) {
         Arrays.stream(arr).map(Arrays::toString).forEach(System.out::println);
     }
+
+    public static void printArr(int[][] arr) {
+        Arrays.stream(arr).map(Arrays::toString).forEach(System.out::println);
+    }
     
 }
