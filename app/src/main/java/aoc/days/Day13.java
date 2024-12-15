@@ -18,14 +18,14 @@ public class Day13 implements Day {
     }
 
     long part1(String data) {
-        return solve(data, false);
+        return countTokens(data, false);
     }
 
     long part2(String data) {
-        return solve(data, true);
+        return countTokens(data, true);
     }
 
-    long solve(String data, boolean part2) {
+    long countTokens(String data, boolean part2) {
         List<long[]> machines = loadMachines(data);
         long totalTokens = 0;
         for (long[] m : machines) {

@@ -71,6 +71,7 @@ public class Day14 implements Day {
         return calcSafetyScore();
     }
 
+    // TODO clean this up
     int calcSafetyScore() {
         int q1 = 0;
         for (int i = 0; i < M / 2; ++i) {

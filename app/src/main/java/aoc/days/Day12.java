@@ -94,6 +94,7 @@ public class Day12 implements Day {
         }
     }
 
+    // TODO clean this up
     int countSides() {
         int sum = 0;
         // check up sides

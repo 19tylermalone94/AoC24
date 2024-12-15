@@ -78,6 +78,7 @@ public class Day9 implements Day {
         return new int[]{fileBegin, fileEnd};
     }
 
+    // TODO clean this up
     private int[] findNewLocation(int fileBegin, int fileLength, int[] disk) {
         int newBegin = 0;
         int newEnd = -1;
