@@ -8,12 +8,23 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import aoc.util.Printers;
 import aoc.util.Readers;
 
 public class Day14 implements Day {
 
-    final int M = 103;
-    final int N = 101;
+    public int M;
+    int N;
+
+    public Day14() {
+        M = 103;
+        N = 101;
+    }
+
+    public Day14(int M, int N) {
+        this.M = M;
+        this.N = N;
+    }
 
     class Robot {
         int i, j;
@@ -47,6 +58,15 @@ public class Day14 implements Day {
 
     int part1(String data) throws Exception {
         initBots(data);
+        for (int i = 0; i < 100; ++i) {
+            robots.forEach(Robot::move);
+        }
+        Printers.printArr(makeGridFromBots());
+        return calcSafetyScore();
+    }
+
+    int part2(String data) throws Exception {
+        initBots(data);
         int imageWidth = 100 * N;
         int imageHeight = 100 * N;
         BufferedImage output = new BufferedImage(imageWidth, imageHeight, BufferedImage.TYPE_INT_RGB);
@@ -71,33 +91,20 @@ public class Day14 implements Day {
         return calcSafetyScore();
     }
 
-    // TODO clean this up
     int calcSafetyScore() {
-        int q1 = 0;
-        for (int i = 0; i < M / 2; ++i) {
-            for (int j = 0; j < N / 2; ++j) {
-                q1 += countBotsInCell(i, j);
-            }
-        }
-
-        int q2 = 0;
-        for (int i = 0; i < M / 2; ++i) {
-            for (int j = N / 2 + 1; j < N; ++j) {
-                q2 += countBotsInCell(i, j);
-            }
-        }
-
-        int q3 = 0;
-        for (int i = M / 2 + 1; i < M; ++i) {
-            for (int j = 0; j < N / 2; ++j) {
-                q3 += countBotsInCell(i, j);
-            }
-        }
-
-        int q4 = 0;
-        for (int i = M / 2 + 1; i < M; ++i) {
-            for (int j = N / 2 + 1; j < N; ++j) {
-                q4 += countBotsInCell(i, j);
+        int q1 = 0, q2 = 0, q3 = 0, q4 = 0;
+        for (int i = 0; i < M; ++i) {
+            for (int j = 0; j < N; ++j) {
+                int numBots = countBotsInCell(i, j);
+                if (i < M / 2 && j < N / 2) {
+                    q1 += numBots;
+                } else if (i < M / 2 && j >= N / 2 + 1) {
+                    q2 += numBots;
+                } else if (i >= M / 2 + 1 && j < N / 2) {
+                    q3 += numBots;
+                } else if (i >= M / 2 + 1 && j >= N / 2 + 1) {
+                    q4 += numBots;
+                }
             }
         }
         return q1 * q2 * q3 * q4;

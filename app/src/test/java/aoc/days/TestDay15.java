@@ -49,9 +49,11 @@ public class TestDay15 implements TestDay {
     }
 
     @Override
+    @Test
     public void testPart2() throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'testPart2'");
+        long expected = 9021;
+        long actual = day15.part2(sample);
+        assertEquals(expected, actual);
     }
     
 }
