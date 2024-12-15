@@ -54,6 +54,7 @@ public class Day14 implements Day {
     public void run(String fileName) throws Exception {
         String data = Readers.fileToString(fileName);
         System.out.println(part1(data));
+        part2(data);
     }
 
     int part1(String data) throws Exception {
