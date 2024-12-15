@@ -1,7 +1,6 @@
 package aoc.app;
 
 import aoc.days.Day;
-import aoc.days.Day14;
 
 public class Main {
 
