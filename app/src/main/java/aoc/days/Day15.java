@@ -62,7 +62,7 @@ public class Day15 implements Day {
     }
 
     private Pair<Integer, Integer> move(Pair<Integer, Integer> robotPos, int di, int dj) {
-        Pair<Integer, Integer> nextPos = new Pair<>(robotPos.getA() + di, robotPos.getB() + dj);
+        Pair<Integer, Integer> nextPos = new Pair<>(robotPos.key() + di, robotPos.val() + dj);
         if (getCell(nextPos) == '#') {
             return robotPos;
         }
@@ -81,7 +81,7 @@ public class Day15 implements Day {
                 continue;
             }
             visited.add(curr);
-            nextPos = new Pair<>(curr.getA() + di, curr.getB() + dj);
+            nextPos = new Pair<>(curr.key() + di, curr.val() + dj);
             if (getCell(nextPos) == '#') {
                 move = false;
                 break;
@@ -91,17 +91,17 @@ public class Day15 implements Day {
             }
             if (getCell(nextPos) == '[') {
                 queue.add(nextPos);
-                queue.add(new Pair<>(nextPos.getA(), nextPos.getB() + 1));
+                queue.add(new Pair<>(nextPos.key(), nextPos.val() + 1));
             }
             if (getCell(nextPos) == ']') {
-                queue.add(new Pair<>(nextPos.getA(), nextPos.getB() - 1));
+                queue.add(new Pair<>(nextPos.key(), nextPos.val() - 1));
                 queue.add(nextPos);
             }
         }
         if (move) {
             while (!visited.isEmpty()) {
                 for (Pair<Integer, Integer> pos : new ArrayList<>(visited)) {
-                    nextPos = new Pair<>(pos.getA() + di, pos.getB() + dj);
+                    nextPos = new Pair<>(pos.key() + di, pos.val() + dj);
                     if (!visited.contains(nextPos)) {
                         setCell(nextPos, getCell(pos));
                         setCell(pos, '.');
@@ -109,7 +109,7 @@ public class Day15 implements Day {
                     }
                 }
             }
-            nextPos = new Pair<>(robotPos.getA() + di, robotPos.getB() + dj);
+            nextPos = new Pair<>(robotPos.key() + di, robotPos.val() + dj);
             setCell(robotPos, '.');
             setCell(nextPos, '@');
             return nextPos;
@@ -130,11 +130,11 @@ public class Day15 implements Day {
     }
 
     char getCell(Pair<Integer, Integer> pos) {
-        return grid[pos.getA()][pos.getB()];
+        return grid[pos.key()][pos.val()];
     }
 
     void setCell(Pair<Integer, Integer> pos, char val) {
-        grid[pos.getA()][pos.getB()] = val;
+        grid[pos.key()][pos.val()] = val;
     }
 
     Pair<Integer, Integer> findRobot() {
