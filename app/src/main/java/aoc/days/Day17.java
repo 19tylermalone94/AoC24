@@ -12,7 +12,6 @@ public class Day17 implements Day {
     @Override
     public void run(String fileName) throws Exception {
         int a = 2;
-        System.out.println(a << 3);
         String data = Readers.fileToString(fileName);
         System.out.println(part1(data));
         System.out.println(part2(data));
