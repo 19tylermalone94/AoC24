@@ -1,6 +1,5 @@
 package aoc.days;
 
-import java.util.Arrays;
 import aoc.util.Parsers;
 import aoc.util.Readers;
 
@@ -99,12 +98,6 @@ public class Day6 implements Day {
                 }
             }
         }
-        Arrays.stream(grid).forEach(row -> {
-            for (char c : row) {
-                System.out.print(c + " (" + (int)c + ") ");
-            }
-            System.out.println();
-        });
         throw new RuntimeException();
     }
 
