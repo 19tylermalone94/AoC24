@@ -24,7 +24,7 @@ public class Day22 implements Day {
                                           .collect(Collectors.toList());
         long sum = 0L;
         for (long initial : initialNums) {
-            sum += predictNthSecret(initial, 10);
+            sum += predictNthSecret(initial, 2000);
         }
         return sum;
     }
